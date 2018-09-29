@@ -1,0 +1,18 @@
+version: '3'
+services:
+  plex-web-downloader:
+    container_name: plex-downloader
+    build: .
+    restart: always
+    ports:
+      - "3000:3000"
+    volumes:
+      - /path/to/plex:/plex
+      - /path/to/media/collection:/data
+    networks:
+      - local
+
+networks:
+  local:
+    external:
+      name: local
